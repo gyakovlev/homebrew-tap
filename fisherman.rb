@@ -1,5 +1,5 @@
 class Fisherman < Formula
-  desc "Fish plugin manager"
+  desc "fish plugin manager"
   homepage "https://github.com/fisherman/fisherman"
 
   url "https://raw.githubusercontent.com/fisherman/fisherman/2.7.8/fisher.fish"
@@ -9,13 +9,12 @@ class Fisherman < Formula
 
   depends_on "fish"
 
-
   require 'open3'
 
   def fish_v
     out, st = Open3.capture2e("fish -v")
     if st.exitstatus != 0
-      odie "Fish is not found!"
+      odie "fish-shell not installed."
     else
       out.strip
     end
@@ -25,25 +24,34 @@ class Fisherman < Formula
     fish_v.start_with?("fish, version 2.2")
   end
 
-
   def install
     share.install "fisher.fish"
 
     fish_prefix = File.realpath("#{HOMEBREW_PREFIX}/opt/fish/")
 
-    destination =
+    functions_dest =
       if fish_2_2?
         "#{fish_prefix}/share/fish/functions"
       else
         "#{fish_prefix}/share/fish/vendor_functions.d"
       end
 
-    ohai "fisher function will live in \n #{destination}"
+    completions_dest =
+      if fish_2_2?
+        "#{fish_prefix}/share/fish/completions"
+      else
+        "#{fish_prefix}/share/fish/vendor_completions.d"
+      end
 
-    makedirs destination
-    ln_sf "#{share}/fisher.fish", "#{destination}/fisher.fish"
+    ohai "fisherman will be installed to \n #{functions_dest}"
+
+    makedirs functions_dest
+    makedirs completions_dest
+
+    ln_sf "#{share}/fisher.fish", "#{functions_dest}/fisher.fish"
+
+    File.write("#{completions_dest}/fisher.fish", "fisher --complete")
   end
-
 
   def caveats
     if fish_2_2?
@@ -56,12 +64,5 @@ class Fisherman < Formula
             end
       EOS
     end
-  end
-
-
-  test do
-    system "fish", "-c", "fisher -v"
-    # tried to check here, that the output version is the same as in the formula
-    # but it doesn't make sense with HEAD
   end
 end
