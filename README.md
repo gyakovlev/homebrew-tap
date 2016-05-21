@@ -1,43 +1,37 @@
 [fisherman]: https://github.com/fisherman/fisherman
-[homebrew]: https://github.com/Homebrew/brew
 
-
-# [fisherman][] [homebrew][] tap
-
+# [fisherman] brew tap
 
 ## Usage
-
-First add the _tap_:
 
 ```shell
 brew tap fisherman/tap
 ```
 
-Then you can install
+Then choose to install:
 
-- lastest stable version of [fisherman] with
+* the lastest stable version of [fisherman]
 
-  ```shell
+  ```
   brew install fisherman
   ```
 
-- or the version from the fisherman's repo `master` branch with
+* or latest commits from the `master` branch
 
-  ```shell
+  ```
   brew install --HEAD fisherman
   ```
 
-When you do `brew update` this tap will be updated automatically, you don't need to do anything special. Upgrade fisherman as any other formula:
+When you `brew update` this tap will be automatically updated, then you can upgrade fisherman as any other formula:
 
 ```shell
 brew update
 brew upgrade fisherman
 ```
 
+## Maintaining
 
-## Maintaining the tap
+Update the two fields in [`fisherman.rb`](./fisherman.rb#L5-L6):
 
-All you need to do is just to change two fields in [`fisherman.rb`](./fisherman.rb#L5-L6):
-
-- `url` referring to the latest stable version of the `fisher.fish` file
-- `sha256` which you can get with running `shasum -a 256 fisher.fish` on that file
+- `url` the version in `fisher.fish`
+- `sha256` which can be obtained with `shasum -a 256 fisher.fish`
