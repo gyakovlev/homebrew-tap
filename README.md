@@ -3,7 +3,6 @@
 # [fisherman] brew tap
 
 [![](https://img.shields.io/badge/fisherman-2.7.9-blue.svg)](https://github.com/fisherman/fisherman/releases)
-[![](https://img.shields.io/badge/license-MIT-blue.svg)](https://tldrlegal.com/license/mit-license)
 [![](https://fisherman-wharf.herokuapp.com/badge.svg)](https://fisherman-wharf.herokuapp.com)
 
 ## Usage
