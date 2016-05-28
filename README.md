@@ -2,7 +2,7 @@
 
 # [fisherman] brew tap
 
-[![](https://img.shields.io/badge/fisherman-2.7.9-blue.svg)](https://github.com/fisherman/fisherman/releases)
+[![](https://img.shields.io/badge/fisherman-2.9.0-blue.svg)](https://github.com/fisherman/fisherman/releases)
 [![](https://fisherman-wharf.herokuapp.com/badge.svg)](https://fisherman-wharf.herokuapp.com)
 
 ## Usage
@@ -13,7 +13,7 @@ brew tap fisherman/tap
 
 Then choose to install:
 
-* the lastest stable version of [fisherman]
+* the latest stable version of [fisherman]
 
   ```
   brew install fisherman
@@ -36,5 +36,5 @@ brew upgrade fisherman
 
 Update the two fields in [`fisherman.rb`](./fisherman.rb#L5-L6):
 
-- `url` the version in `fisher.fish`
+- the version of `fisher.fish` in the `url`
 - `sha256` which can be obtained with `shasum -a 256 fisher.fish`
