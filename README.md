@@ -2,7 +2,7 @@
 
 # [fisherman] brew tap
 
-[![](https://img.shields.io/badge/fisherman-2.9.0-blue.svg)](https://github.com/fisherman/fisherman/releases)
+[![](https://img.shields.io/badge/fisherman-2.10.0-blue.svg)](https://github.com/fisherman/fisherman/releases)
 [![](https://fisherman-wharf.herokuapp.com/badge.svg)](https://fisherman-wharf.herokuapp.com)
 
 ## Usage
