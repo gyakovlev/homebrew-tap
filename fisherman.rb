@@ -2,8 +2,8 @@ class Fisherman < Formula
   desc "fish plugin manager"
   homepage "https://github.com/fisherman/fisherman"
 
-  url "https://raw.githubusercontent.com/fisherman/fisherman/2.10.0/fisher.fish"
-  sha256 "a5f982ac0ade82c88a8a4da0b014a33266492f95a9156022534b6a1f8d7dd0b3"
+  url "https://raw.githubusercontent.com/fisherman/fisherman/2.12.0/fisher.fish"
+  sha256 "3fa4c7c9a222dca46f7d279989ceb2fff1cc0f30e4f2815bbcd5afe7f8bc3d1e"
 
   head "https://github.com/fisherman/fisherman.git"
 
