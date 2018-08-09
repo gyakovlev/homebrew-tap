@@ -1,0 +1,28 @@
+language: c
+os: osx
+compiler: clang
+cache:
+  directories:
+    - /usr/local/Homebrew/Library/Homebrew/vendor/bundle
+branches:
+  only:
+    - master
+before_install:
+  - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
+  - if [ -f ".git/shallow" ]; then
+      travis_retry git fetch --unshallow;
+    fi
+  - sudo chown -R "$USER" "$(brew --repo)"
+  - travis_retry brew update
+  - travis_retry brew install fish
+  - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
+  - mkdir -p "$HOMEBREW_TAP_DIR"
+  - rm -rf "$HOMEBREW_TAP_DIR"
+  - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+script:
+  - brew audit ./*.rb
+  - brew install --verbose --build-bottle ./*.rb
+  - fish -c "fisher --version"
+  - fish -c "fisher -h"
+  - fish -c "fisher z; fisher ls"
+  - fish -c "fisher ls-remote"
